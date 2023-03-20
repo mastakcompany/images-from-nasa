@@ -3,7 +3,7 @@ import os
 import requests
 from dotenv import load_dotenv
 
-from main import download_image
+from utils import download_image
 
 
 def fetch_epic_images(path, api_key):

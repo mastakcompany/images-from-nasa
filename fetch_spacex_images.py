@@ -1,7 +1,7 @@
 import requests
 import argparse
 
-from main import download_image
+from utils import download_image
 
 
 def create_parser():
