@@ -33,7 +33,7 @@ def fetch_apod_images(count, path, api_key):
         try:
             download_image(pictures_url, path, filename)
         except requests.exceptions.HTTPError:
-            return 'The picture not download'
+            return 'The image was not downloaded'
     else:
         return 'All APOD images were successfully downloaded'
 
