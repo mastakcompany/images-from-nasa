@@ -1,6 +1,7 @@
 import requests
-from pathlib import Path
 import argparse
+
+from main import download_image
 
 
 def create_parser():
@@ -32,15 +33,6 @@ def fetch_spacex_images(path, launch_id):
             return 'All pictures was download successfully'
     else:
         return 'The list of pictures is empty'
-
-
-def download_image(url, path, name):
-    Path(path).mkdir(parents=True, exist_ok=True)
-    response = requests.get(url)
-    response.raise_for_status()
-
-    with open(f'{path}/{name}.jpg', 'wb') as file:
-        file.write(response.content)
 
 
 if __name__ == '__main__':
