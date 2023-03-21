@@ -40,7 +40,6 @@ def main(token, chat_id, frequent_time, path):
         else:
             with open(f'{path}/{photo}', 'rb') as photo:
                 send_photo(bot, chat_id, photo)
-        print(frequent_time)
         sleep(int(frequent_time)*3600)
 
 
