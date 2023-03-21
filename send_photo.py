@@ -1,7 +1,6 @@
 import argparse
 import os
 import random
-from time import sleep
 
 import telegram
 from dotenv import load_dotenv
