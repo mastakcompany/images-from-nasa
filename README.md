@@ -2,6 +2,12 @@
 
 Images From NASA is a set of Python scripts that allow users to upload images from the NASA Image Library. It can also be used to send photos to Telegram channels.
 
+# Prerequisites
+Before using this script, make sure you have the following installed on your computer:
+
+* Python 3.x
+* pip package manager
+
 # Installation
 
 1. Clone or download the repository: git clone https://github.com/mastakcompany/images-from-nasa.git
