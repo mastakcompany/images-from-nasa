@@ -26,9 +26,9 @@ def fetch_apod_images(count, path, api_key):
     }
     response = requests.get(api_endpoint, params=params)
     response.raise_for_status()
-    apods_list = response.json()
+    apods = response.json()
 
-    for apods_number, apod in enumerate(apods_list, start=1):
+    for apods_number, apod in enumerate(apods, start=1):
         filename = f'apod_{apods_number}'
         pictures_url = apod['url']
         try:

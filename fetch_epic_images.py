@@ -8,8 +8,8 @@ from utils import download_image
 
 def fetch_epic_images(path, api_key):
     api_endpoint = 'https://api.nasa.gov/EPIC/archive/natural/{}/png/{}.png?api_key={}'
-    list_of_image_objects = 'https://api.nasa.gov/EPIC/api/natural/images?api_key={}'
-    response = requests.get(list_of_image_objects.format(api_key))
+    image_objects = 'https://api.nasa.gov/EPIC/api/natural/images?api_key={}'
+    response = requests.get(image_objects.format(api_key))
     response.raise_for_status()
     for image_object in response.json():
         image_name = image_object['image']
