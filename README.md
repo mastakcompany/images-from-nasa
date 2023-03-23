@@ -8,19 +8,15 @@ Before using this script, make sure you have the following installed on your com
 * Python 3.x
 * pip package manager
 
-# Installation
-
-1. Clone or download the repository: git clone https://github.com/mastakcompany/images-from-nasa.git
-2. Navigate to the project directory: cd images-from-nasa
-3. Install the required packages: pip install -r requirements.txt
-
 # Usage
 
 The program includes several scripts that can be used as stand-alone.
 
 ## fetch_apod_images.py
 
-### Prerequisites
+This script allows you to fetch the Astronomy Picture of the Day (APOD) images from the NASA API and store them in a local directory.
+
+### Requirements
 Before running the script, you need to have Python 3 installed on your computer. You also need to have the requests and dotenv Python packages installed. You can install them by running the following command in your terminal:
 ```
 pip install requests dotenv
@@ -113,7 +109,7 @@ This script allows you to send space images to a Telegram channel using Telegram
 2. Create a virtual environment and activate it.
 3. Install the required packages listed in the requirements.txt file by running pip install -r requirements.txt.
 4. Create a .env file in the root directory and add your Telegram API token and channel ID. For example:
-```angular2html
+```
 TELEGRAM_TOKEN=<your_telegram_api_token>
 TELEGRAM_CHANNEL_ID=<your_telegram_channel_id>
 ```
@@ -121,7 +117,7 @@ TELEGRAM_CHANNEL_ID=<your_telegram_channel_id>
 
 ### Usage
 To use the script, run the following command:
-```angular2html
+```
 python main.py --photo [photo_name]
 ```
 * If --photo is not specified, a random image will be selected from the images directory.
@@ -140,7 +136,7 @@ This is the main script of the program. It allows you to send space images from 
 
 ### Installation
 1. Clone this repository to your local machine
-```angular2html
+```
 git clone https://github.com/your-username/telegram-space-images-script.git
 ```
 2. Install the required packages
@@ -150,13 +146,13 @@ pip install python-telegram-bot python-dotenv
 
 ### Usage
 1. Add your Telegram Bot token and Channel ID to a .env file in the root of the project
-```angular2html
+```
 TELEGRAM_TOKEN=your_telegram_bot_token
 TELEGRAM_CHANNEL_ID=your_telegram_channel_id
 ```
 2. Place your space images in a folder named 'images' in the root of the project
 3. Run the script
-```angular2html
+```
 python main.py --frequence <frequency_in_hours>
 ```
 * The --frequence or -f argument is optional. If not specified, the default frequency is 4 hours.
