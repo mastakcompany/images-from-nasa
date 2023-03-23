@@ -27,14 +27,14 @@ def send_photo(bot, chat_id, image):
     )
 
 
-def main(token, chat_id, frequent_time, path):
+def run_send_messages(token, chat_id, frequent_time, path):
     bot = telegram.Bot(token=token)
-    images = list(os.walk('./images'))[0][2]
+    images = [filenames for *dirpath, filenames in os.walk('./images')][0]
     while True:
         try:
             photo = images.pop()
         except IndexError:
-            images = list(os.walk('./images'))[0][2]
+            images = [filenames for *dirpath, filenames in os.walk('./images')][0]
             random.shuffle(images)
         else:
             with open(f'{path}/{photo}', 'rb') as photo:
@@ -49,4 +49,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     token = os.environ['TELEGRAM_TOKEN']
     chat_id = os.environ['TELEGRAM_CHANNEL_ID']
-    main(token, chat_id, args.frequence, path)
+    run_send_messages(token, chat_id, args.frequence, path)
