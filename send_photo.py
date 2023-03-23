@@ -19,7 +19,7 @@ def create_parser():
     return parser
 
 
-def main(token, chat_id, path, image):
+def send_image(token, chat_id, path, image):
     bot = telegram.Bot(token=token)
     images = list(os.walk('./images'))[0][2]
     # Здесь я не знаю как можно обойтись дефолтным значением из argparse
@@ -38,4 +38,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     token = os.environ['TELEGRAM_TOKEN']
     chat_id = os.environ['TELEGRAM_CHANNEL_ID']
-    main(token, chat_id, path, args.photo)
+    send_image(token, chat_id, path, args.photo)

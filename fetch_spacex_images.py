@@ -22,14 +22,14 @@ def fetch_spacex_images(path, launch_id):
 
     links_images = response.json()['links']['flickr']['original']
 
-    if links_images:
+    if not links_images:
+        return 'The list of pictures is empty'
+    else:
         for image_number, image_link in enumerate(links_images, start=1):
             filename = f'spacex_{image_number}'
             download_image(image_link, path, filename)
         else:
             return 'All pictures was download successfully'
-    else:
-        return 'The list of pictures is empty'
 
 
 if __name__ == '__main__':
