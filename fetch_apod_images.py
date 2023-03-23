@@ -31,10 +31,7 @@ def fetch_apod_images(count, path, api_key):
     for apods_number, apod in enumerate(apods, start=1):
         filename = f'apod_{apods_number}'
         pictures_url = apod['url']
-        try:
-            download_image(pictures_url, path, filename)
-        except requests.exceptions.HTTPError:
-            return 'The image was not downloaded'
+        download_image(pictures_url, path, filename)
     else:
         return 'All APOD images were successfully downloaded'
 
@@ -45,4 +42,7 @@ if __name__ == '__main__':
     path = './images'
     parser = create_parser()
     args = parser.parse_args()
-    print(fetch_apod_images(args.count, path, token))
+    try:
+        print(fetch_apod_images(args.count, path, token))
+    except requests.exceptions.HTTPError:
+        print('Images were not downloaded')
