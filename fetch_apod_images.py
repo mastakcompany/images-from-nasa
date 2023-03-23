@@ -12,7 +12,8 @@ def create_parser():
         description='The script download images from NASA'
     )
     parser.add_argument(
-        '--count', '-c', help='Specify count of pictures. Random if not set.'
+        '--count', '-c', help='Specify count of pictures. Random if not set.',
+        default=random.randint(1, 10)
     )
     return parser
 
@@ -21,7 +22,7 @@ def fetch_apod_images(count, path, api_key):
     api_endpoint = 'https://api.nasa.gov/planetary/apod'
     params = {
         'api_key': api_key,
-        'count': count if count else random.randint(10, 20)
+        'count': count
     }
     response = requests.get(api_endpoint, params=params)
     response.raise_for_status()

@@ -14,7 +14,8 @@ def create_parser():
     parser.add_argument(
         '--frequence',
         '-f',
-        help='Specify the frequency of publication in hours'
+        help='Specify the frequency of publication in hours',
+        default=4
     )
     return parser
 
@@ -29,8 +30,6 @@ def send_photo(bot, chat_id, image):
 def main(token, chat_id, frequent_time, path):
     bot = telegram.Bot(token=token)
     images = list(os.walk('./images'))[0][2]
-    if not frequent_time:
-        frequent_time = 4
     while True:
         try:
             photo = images.pop()

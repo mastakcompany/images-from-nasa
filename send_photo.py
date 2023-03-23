@@ -22,6 +22,7 @@ def create_parser():
 def main(token, chat_id, path, image):
     bot = telegram.Bot(token=token)
     images = list(os.walk('./images'))[0][2]
+    # Здесь я не знаю как можно обойтись дефолтным значением из argparse
     if not image:
         photo = images[random.randint(0, len(images)-1)]
     else:

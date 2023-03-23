@@ -9,19 +9,16 @@ def create_parser():
         description='The script download images from NASA'
     )
     parser.add_argument(
-        '--launch_id', '-id', help='Specify the desired launch id'
+        '--launch_id', '-id', help='Specify the desired launch id',
+        default='latest'
     )
     return parser
 
 
 def fetch_spacex_images(path, launch_id):
     api_endpoint = 'https://api.spacexdata.com/v5/launches/{}'
-    if launch_id:
-        response = requests.get(api_endpoint.format(launch_id))
-        response.raise_for_status()
-    else:
-        response = requests.get(api_endpoint.format('latest'))
-        response.raise_for_status()
+    response = requests.get(api_endpoint.format(launch_id))
+    response.raise_for_status()
 
     links_images = response.json()['links']['flickr']['original']
 
