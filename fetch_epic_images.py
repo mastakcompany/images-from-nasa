@@ -17,9 +17,9 @@ def fetch_epic_images(path, api_key):
         params=payload
     )
     response.raise_for_status()
-    for image_object in response.json():
-        image_name = image_object['image']
-        image_date = datetime.date.fromisoformat(image_object['date'].split()[0]).strftime('%Y/%m/%d')
+    for image in response.json():
+        image_name = image['image']
+        image_date = datetime.date.fromisoformat(image['date'].split()[0]).strftime('%Y/%m/%d')
         picture_url = api_endpoint.format(image_date, image_name)
         download_image(picture_url, path, image_name, api_key)
     else:

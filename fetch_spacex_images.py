@@ -28,8 +28,7 @@ def fetch_spacex_images(path, launch_id):
         for image_number, image_link in enumerate(links_images, start=1):
             filename = f'spacex_{image_number}'
             download_image(image_link, path, filename)
-        else:
-            return 'All pictures was download successfully'
+        return 'All pictures were download successfully'
 
 
 if __name__ == '__main__':
